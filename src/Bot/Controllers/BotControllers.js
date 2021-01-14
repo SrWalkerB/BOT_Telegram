@@ -1,6 +1,6 @@
 const moment = require("moment")
 const dolarResult = require("../../API/dolar")
-const newsResult = require("../../API/news")
+const { newsResult, news_World_Result } = require("../../API/news")
 const Bot = require("../Bot")
 
 
@@ -14,9 +14,10 @@ module.exports = {
 
         Bot.command("menu", (ctx) => ctx.reply(`*Bot Commads* \n
         1- /dolar \n 
-        2- /news_en  \n
-        3- /dialogo \n
-        4- /ban`))
+        2- /news_pc  \n
+        3- /news \n
+        4- /dialogo \n
+        5- /ban`))
     },
 
     dialog: () => {
@@ -63,20 +64,36 @@ module.exports = {
 
         const news = await newsResult;
 
-        let firt_five_news = [];
+        let fift_teen_news = [];
 
-        for(let x = 0; x < 10; x++){
+        for(let x = 0; x < 15; x++){
 
-            //console.log(news[x])
-            firt_five_news.push(news[x])
+            fift_teen_news.push(news[x])
         }
+        
 
-        Bot.command("/news_en", (ctx) => firt_five_news.map((result, index) => {
+        Bot.command("/news_pc", (ctx) => fift_teen_news.map((result, index) => {
 
-            ctx.reply(`-> ${result.title} \n  *${result.newsURL}* \n`)
+            ctx.reply(`-> ${result.title} (${result.site}) \n *${result.newsURL}* \n`)
         }));
         
 
+    },
+
+    news_world: async () => {
+        
+        const news = await news_World_Result
+        let fif_teen_news = [];
+
+        for(let x = 0; x < 15; x++) {
+
+            fif_teen_news.push(news[x]);
+        }
+
+        Bot.command("/news", (ctx) => fif_teen_news.map(result => {
+
+            ctx.reply(`-> *${result.title}* (${result.site}) \n ${result.newsURL}`)
+        }))
     }
 
 }

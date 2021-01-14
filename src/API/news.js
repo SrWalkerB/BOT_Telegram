@@ -10,4 +10,14 @@ const newsResult = axios.get(process.env.NEWSAPI).then(resp => {
 })
 
 
-module.exports = newsResult;
+const news_World_Result = axios.get(process.env.NEWS_WORLD_API).then(resp => {
+
+    return resp.data;
+})
+
+
+
+module.exports = {
+    newsResult,
+    news_World_Result
+};

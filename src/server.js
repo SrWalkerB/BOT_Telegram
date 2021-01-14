@@ -10,6 +10,7 @@ BotControllers.banido_command();
 BotControllers.dialog();
 BotControllers.dolar();
 BotControllers.news();
+BotControllers.news_world();
 
 
 
