@@ -85,7 +85,7 @@ module.exports = {
         const news = await news_World_Result
         let fif_teen_news = [];
 
-        for(let x = 0; x < 15; x++) {
+        for(let x = 0; x < 9; x++) {
 
             fif_teen_news.push(news[x]);
         }
@@ -93,6 +93,8 @@ module.exports = {
         Bot.command("/news", (ctx) => fif_teen_news.map(result => {
 
             ctx.reply(`-> *${result.title}* (${result.site}) \n ${result.newsURL}`)
+
+            
         }))
     }
 
