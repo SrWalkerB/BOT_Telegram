@@ -24,7 +24,7 @@ const dolar = {
     }
 }
 
-const news = {
+const news_pc = {
 
     async run(){
 
@@ -32,7 +32,7 @@ const news = {
     
         let fift_teen_news = [];
     
-        for(let x = 0; x < 15; x++){
+        for(let x = 0; x < 9; x++){
     
             fift_teen_news.push(news[x])
         }
@@ -75,7 +75,7 @@ const news_world = {
 function Actions(){
 
     dolar.run();
-    news.run();
+    news_pc.run();
     news_world.run();
 
 }
